@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+	<meta charset="UTF-8">
+	<title>VueJs computed</title>
+</head>
+<body>
+	<section id="myApp">
+		<p>{{ money }} 的 80% 是 {{ moneyOne }}</p>
+		<p>{{ moneyOne }} 的 70% 是 {{ moneyTwo }}</p>
+
+	</section>
+
+	<script src="../lib/vue.min.js"></script>
+	<script>
+
+		// Vue 对象实例化
+		var myApp = new Vue({
+			el: '#myApp',
+			data: {
+				money: 15000,
+			},
+			computed: {
+				moneyOne: function() {
+					return this.money * .8
+				},
+				moneyTwo: function() {
+					// 使用 moneyOne 的结果 x .7
+					return this.moneyOne * .7
+				}
+			}
+		});
+	</script>
+</body>
+</html>

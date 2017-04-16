@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+	<meta charset="UTF-8">
+	<title>VueJs filters</title>
+</head>
+<body>
+	<section id="myApp">
+		<h1>{{message}}</h1>
+		<h2>{{message | toupper}}</h2>
+		<p>{{number}} 是 {{number | topercentage }}</p>
+	</section>
+
+	<script src="../lib/vue.min.js"></script>
+	<script>
+
+		// Vue 对象实例化
+		var myApp = new Vue({
+			el: '#myApp',
+			data: {
+				message: 'hello vue.js!',
+				number: 0.3
+			},
+			filters: {
+				toupper: function(val) {
+					return val.toUpperCase()
+				},
+				topercentage: function(val) {
+					return val * 100 +'%'
+				}
+			}
+		});
+	</script>
+</body>
+</html>

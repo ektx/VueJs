@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+	<meta charset="UTF-8">
+	<title>VueJs click</title>
+</head>
+<body>
+	<section id="myApp">
+		<ul>
+			<!-- 调用组件 -->
+			<li v-for="(game, index) in games">{{index+1}}. {{game.title}}</li>
+		</ul>
+	</section>
+
+	<script src="../../lib/vue.min.js"></script>
+	<script>
+
+		// Vue 对象实例化
+		var myApp = new Vue({
+			el: '#myApp',
+			data: {
+				games: [
+					{ title: '饥荒' },
+					{ title: '开心消消乐' },
+					{ title: '魔兽' },
+					{ title: '仁王' }
+				]
+			}
+		});
+	</script>
+</body>
+</html>

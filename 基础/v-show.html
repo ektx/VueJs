@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+	<meta charset="UTF-8">
+	<title></title>
+</head>
+<body>
+	<section id="myApp">
+		<h1 v-show="result">你能看到我?</h1>
+		
+
+		<button @click="btnClick">切换</button>
+	</section>
+
+	<script src="../lib/vue.min.js"></script>
+	<script>
+
+		// Vue 对象实例化
+		var myApp = new Vue({
+			el: '#myApp',
+			data: {
+				result: true
+			},
+			methods: {
+				btnClick: function() {
+					this.result = !this.result
+				}
+			}
+		});
+
+	</script>
+</body>
+</html>

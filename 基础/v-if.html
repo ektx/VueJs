@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+	<meta charset="UTF-8">
+	<title></title>
+</head>
+<body>
+	<section id="myApp">
+		<h1 v-if="result === 0">绩效还未公布</h1>
+		<h1 v-else-if="result < 60">{{result}} D</h1>
+		<h1 v-else-if="result < 80">{{result}} C</h1>
+		<h1 v-else-if="result < 90">{{result}} B</h1>
+		<h1 v-else>{{result}} A+</h1>
+
+		<button @click="btnClick">生成</button>
+	</section>
+
+	<script src="../lib/vue.min.js"></script>
+	<script>
+
+		// Vue 对象实例化
+		var myApp = new Vue({
+			el: '#myApp',
+			data: {
+				result: 0
+			},
+			methods: {
+				btnClick: function() {
+					this.result = (Math.random() * 100).toFixed(0)
+				}
+			}
+		});
+
+	</script>
+</body>
+</html>

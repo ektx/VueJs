@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+	<meta charset="UTF-8">
+	<title>VueJs click</title>
+</head>
+<body>
+	<section id="myApp">
+		<ul>
+			<!-- 调用组件 -->
+			<li v-for="(value, key) in games">{{key}}: {{value}}</li>
+		</ul>
+	</section>
+
+	<script src="../../lib/vue.min.js"></script>
+	<script>
+
+		// Vue 对象实例化
+		var myApp = new Vue({
+			el: '#myApp',
+			data: {
+				games: {
+					'应用名': "Clips",
+					'开发商': 'Apple Distribution International',
+					'更新日期': '2017年4月7日',
+					'版本': '1.0',
+					'大小': '49.1MB',
+					'评级': '限4岁以上'
+				}
+			}
+		});
+	</script>
+</body>
+</html>

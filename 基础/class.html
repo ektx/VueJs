@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+	<meta charset="UTF-8">
+	<title>VueJs watch</title>
+	<style>
+		.active {
+			color: red
+		}
+
+		.big {
+			font-size: 42px
+		}
+	</style>
+</head>
+<body>
+	<section id="myApp">
+		<h1 :class="{active: isActive, big: isBig}">标题</h1>
+		<button @click="btnClick">切换颜色</button>
+
+		<h1 :class="myClass">标题</h1>
+		<button @click="btnClickObj">切换颜色</button>
+	</section>
+
+	<script src="../lib/vue.min.js"></script>
+	<script>
+
+		// Vue 对象实例化
+		var myApp = new Vue({
+			el: '#myApp',
+			data: {
+				myClass: {
+					active: true,
+					big: true
+				},
+				isActive: true,
+				isBig: false,
+			},
+			methods: {
+				btnClick: function() {
+					this.isActive = !this.isActive;
+					this.isBig = !this.isBig;
+				},
+				btnClickObj: function() {
+					this.myClass.active = !this.myClass.active;
+					this.myClass.big = !this.myClass.big;
+				}
+			}
+		});
+
+		//设置 money
+		myApp.money = 15000;
+	</script>
+</body>
+</html>

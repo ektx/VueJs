@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+	<meta charset="UTF-8">
+	<title></title>
+</head>
+<body>
+	<section id="myApp">
+		<p>事件处理器</p>
+		<input type="text" id="txtName" v-on:keyup="txtKeyUp($event)">
+		<button @click="btnClick($event)">click</button>
+	</section>
+
+	<script src="../lib/vue.min.js"></script>
+	<script>
+		var myApp = new Vue({
+			el: '#myApp',
+			data: {
+			},
+			methods: {
+				btnClick: function(str) {
+					this.debugLog(event)
+				},
+				txtKeyUp: function(event) {
+					this.debugLog(event)
+				},
+				debugLog: function(e) {
+					console.log(
+						e.srcElement.tagName,
+						e.srcElement.id,
+						e.srcElement.innerHTML,
+						e.key ? e.key : ''
+					)
+				}
+			}
+		});
+	</script>
+</body>
+</html>

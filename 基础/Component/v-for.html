@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+	<meta charset="UTF-8">
+	<title>VueJs click</title>
+</head>
+<body>
+	<section id="myApp">
+		<ol>
+			<!-- 调用组件 -->
+			<my-game v-for="data in games" v-bind:game="data"></my-game>
+		</ol>
+	</section>
+
+	<script src="../../lib/vue.min.js"></script>
+	<script>
+		// 定义组件
+		Vue.component('my-game', {
+			props: ['game'],  // v-bind: game
+			template: '<li>{{ game.title }}</li>'
+		});
+
+		// Vue 对象实例化
+		var myApp = new Vue({
+			el: '#myApp',
+			data: {
+				games: [
+					{ title: '饥荒' },
+					{ title: '开心消消乐' },
+					{ title: '魔兽' },
+					{ title: '仁王' }
+				]
+			}
+		});
+	</script>
+</body>
+</html>

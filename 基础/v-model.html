@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+	<meta charset="UTF-8">
+	<title></title>
+</head>
+<body>
+	<section id="myApp">
+		<p>你最近在玩的游戏中: {{message}}</p>
+		<input type="text" v-model="message">
+	</section>
+
+	<script src="../lib/vue.min.js"></script>
+	<script>
+		var myApp = new Vue({
+			el: '#myApp',
+			data: {
+				message: '饥荒'
+			}
+		});
+	</script>
+</body>
+</html>

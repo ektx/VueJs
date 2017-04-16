@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+	<meta charset="UTF-8">
+	<title>VueJs watch</title>
+</head>
+<body>
+	<section id="myApp">
+		<p>{{ money }}</p>
+		<p>{{ money }} 的 80% 是 {{ moneyOne }}</p>
+		<button @click="btnClick(1000)">加上 1000</button>
+	</section>
+
+	<script src="../lib/vue.min.js"></script>
+	<script>
+
+		// Vue 对象实例化
+		var myApp = new Vue({
+			el: '#myApp',
+			data: {
+				money: 15000,
+			},
+			computed: {
+				moneyOne: {
+					get: function() {
+						console.log('2.设置 moneyOne 值')
+						return this.money * .8
+					},
+					set: function(val) {
+						console.log('1.设置 money 值')
+						this.money = val / .8;
+					}
+				}
+			},
+			methods: {
+				btnClick: function(val) {
+					this.moneyOne += val
+				}
+			}
+		});
+
+		//设置 money
+		myApp.money = 15000;
+	</script>
+</body>
+</html>
