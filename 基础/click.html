@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>VueJs click</title>
+</head>
+<body>
+	<section id="myApp">
+		<p>最近玩的游戏是: {{game}}</p>
+		<button v-on:click="btnClick('开心消消乐')">开心消消乐</button>
+		<button v-on:click="btnClick('魔兽')">魔兽</button>
+		<button @click="btnClick('仁王')">仁王</button>
+	</section>
+
+	<script src="../lib/vue.min.js"></script>
+	<script>
+		var myApp = new Vue({
+			el: '#myApp',
+			data: {
+				game: '饥荒'
+			},
+			methods: {
+				btnClick: function(str) {
+					this.game = str
+				}
+			}
+		});
+	</script>
+</body>
+</html>
