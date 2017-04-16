@@ -1,0 +1,6 @@
+{
+  "dependencies": {
+    "global": "^4.3.1",
+    "webpack": "^2.3.3"
+  }
+}
