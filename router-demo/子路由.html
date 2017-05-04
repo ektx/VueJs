@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title></title>
+	<style>
+		.router-link-active {
+			color: red;
+		}
+	</style>
+</head>
+<body>
+
+	<div id="app">
+		<h1>Hello App!</h1>
+
+		<router-view></router-view>
+	</div>
+
+	<template id="home">
+		<div>
+			<h1>Home</h1>
+			<p>{{msg}}</p>
+		</div>
+		<div>
+			<ul class="nav nav-tabs">
+				<li>
+					<a v-link="{ path: '/home/news'}">News</a>
+				</li>
+				<li>
+					<a v-link="{ path: '/home/message' }">Message</a>
+				</li>
+			</ul>
+
+			<router-view></router-view>
+		</div>
+	</template>
+
+	<template id="news">
+		<ul>
+			<li>News 1</li>
+			<li>News 2</li>
+			<li>News 3</li>
+			<li>News 4</li>
+		</ul>
+	</template>
+
+	<template id="message">
+		<ul>
+			<li>Message 1</li>
+			<li>Message 2</li>
+			<li>Message 3</li>
+			<li>Message 4</li>
+		</ul>
+	</template>
+	
+	<script src="../lib/vue.min.js"></script>
+	<script src="../lib/vue-router.js"></script>
+
+	<script>
+
+		// 组件构造器
+		let Home = {
+			template: '#home',
+			data: function() {
+				return {
+					msg: 'Hello, vue router!'
+				}
+			}
+		};
+
+		let News = {
+			template: '#news'
+		};
+
+		let Message = {
+			template: '#message'
+		};
+
+		let About = Vue.extend({
+			template: '<div><h1>Aout</h1></div>'
+		})
+
+
+		// 3. 创建 router 实例，然后传 `routes` 配置
+		const router = new VueRouter({
+			routes : [
+				'/home': {
+					component: Home,
+					// 定义子路由
+					subRoutes: {
+						'/news': {
+							component: News
+						},
+						'message': {
+							component: Message
+						}
+					}
+				},
+				'/about': {
+					component: About
+				}
+			]// (缩写) 相当于 routes: routes
+		});
+
+		// 路由映射
+		// router.map({
+		// 	'/home': {
+		// 		component: Home,
+		// 		// 定义子路由
+		// 		subRoutes: {
+		// 			'/news': {
+		// 				component: News
+		// 			},
+		// 			'message': {
+		// 				component: Message
+		// 			}
+		// 		}
+		// 	},
+		// 	'/about': {
+		// 		component: About
+		// 	}
+		// });
+
+		// 4. 创建和挂载根实例
+		const app = new Vue({
+			router
+		}).$mount('#app')
+	</script>
+</body>
+</html>
