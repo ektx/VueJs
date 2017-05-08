@@ -1,6 +1,6 @@
 <template>
   <div class="hello">
-    <h1 class="one">{{ msg }}</h1>
+    <h1 class="one" @click="hello()">{{ msg }}</h1>
     <h2>Essential Links</h2>
     <ul>
       <li><a href="https://vuejs.org" target="_blank">Docs</a></li>
@@ -25,7 +25,12 @@ export default {
   name: 'hello',
   data () {
     return {
-      msg: 'Welcome!'
+      msg: 'Welcome Body!'
+    }
+  },
+  methods: {
+    hello: function() {
+      alert('hello12')
     }
   }
 }
@@ -52,6 +57,6 @@ a {
 }
 
 .one {
- color: red
+ color: #42b983
 }
 </style>
