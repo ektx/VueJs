@@ -5,6 +5,7 @@
   "license": "MIT",
   "dependencies": {
     "express": "^4.15.2",
+    "vue-cli": "^2.8.1",
     "vue-server-renderer": "^2.3.2"
   }
 }
