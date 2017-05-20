@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+	<meta charset="UTF-8">
+	<title></title>
+</head>
+<body>
+
+	<section id="myApp">
+		
+		<h1>表单单选框示例</h1>
+		
+		<p>性别:</p>
+		<select v-model="sex" id="">
+			<option value="男">男</option>
+			<option value="女">女</option>
+		</select>
+		
+		<p>你喜欢的游戏:</p>
+		<select v-model="myGames" multiple>
+			<option value="饥荒">饥荒</option>
+			<option value="文明">文明</option>
+			<option value="文明5">文明5</option>
+			<option value="王者荣耀">王者荣耀</option>
+		</select>
+		
+		<p>性别: {{sex}}</p>
+		<p>游戏: {{myGames}}</p>
+
+	</section>
+
+	<script src="../../lib/vue.min.js"></script>
+	<script>
+		var myApp = new Vue({
+			el: '#myApp',
+			data: {
+				sex: '男',
+				myGames: ['文明']
+			}
+		});
+	</script>
+</body>
+</html>

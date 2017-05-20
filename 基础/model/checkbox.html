@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+	<meta charset="UTF-8">
+	<title></title>
+</head>
+<body>
+
+	<section id="myApp">
+		
+		<h1>表单复选框示例</h1>
+
+		<label>
+			<input type="checkbox" value="饥荒" v-model="myGames">
+			饥荒
+		</label>
+
+		<label>
+			<input type="checkbox" value="文明5" v-model="myGames">
+			文明5
+		</label>
+
+		<label>
+			<input type="checkbox" value="Darkest" v-model="myGames">
+			Darkest
+		</label>
+		
+		<p>我的选择是: {{myGames}}</p>
+
+	</section>
+
+	<script src="../../lib/vue.min.js"></script>
+	<script>
+		var myApp = new Vue({
+			el: '#myApp',
+			data: {
+				myGames: []
+			}
+		});
+	</script>
+</body>
+</html>
