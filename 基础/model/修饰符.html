@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+	<meta charset="UTF-8">
+	<title></title>
+</head>
+<body>
+
+	<section id="myApp">
+		
+		<h1>下拉选择示例</h1>
+		
+		<div>
+			<p>姓名:</p>
+			<input type="text" v-model.lazy="name" @change="checkName">
+			<span v-show="isOk">OK</span>
+		</div>
+		
+		<div>
+			<p>年龄:</p>
+			<input type="number" max="150" min="0" v-model.number="age">
+		</div>
+
+		<div>
+			<p>说明:</p>
+			<textarea v-model.trim="inner" cols="30" rows="10"></textarea>
+		</div>
+		
+		<p>{{name}}</p>
+		<p>{{age}}</p>
+		<p>{{inner}}</p>
+
+	</section>
+
+	<script src="../../lib/vue.min.js"></script>
+	<script>
+		var myApp = new Vue({
+			el: '#myApp',
+			data: {
+				name: '',
+				isOk: false,
+				age: null,
+				inner: ''
+			},
+			methods: {
+				checkName: function() {
+					if (this.name.length > 0) {
+						this.isOk = true
+					} else {
+						this.isOk = false
+					}
+				}
+			}
+		});
+	</script>
+</body>
+</html>

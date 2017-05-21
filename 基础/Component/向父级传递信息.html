@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+	<meta charset="UTF-8">
+	<title></title>
+</head>
+<body>
+
+	<section id="myApp">
+		
+		<child v-on:send_event="getResult" ></child>
+		<hr />
+		<h1>{{result}}</h1>
+
+
+	</section>
+
+	<script src="../../lib/vue.min.js"></script>
+	<script>
+		// 全局组件
+		Vue.component('child', {
+			template: '<div><input type="text" v-model.number="first" v-on:keyup="add">+<input type="text" v-model.number="last" v-on:keyup="add"></div>',
+			data: function() {
+				return {
+					first: 0,
+					last: 0
+				}
+			},
+			methods: {
+				add: function() {
+					this.$emit('send_event', {
+						val: this.first + this.last
+					})
+				}
+			}
+		});
+
+		var myApp = new Vue({
+			el: '#myApp',
+			data: {
+				result: 0
+			},
+			methods: {
+				getResult: function(result) {
+					this.result = result.val
+				}
+			}
+		});
+	</script>
+</body>
+</html>

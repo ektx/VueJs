@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+	<meta charset="UTF-8">
+	<title></title>
+</head>
+<body>
+
+	<section id="myApp">
+		
+		<table border="1">
+			<tr>
+				<td>姓名</td>
+				<td>爱号</td>
+			</tr>
+			<tr is="row1"></tr>
+			<tr is="row2"></tr>
+		</table>
+
+	</section>
+
+	<script src="../../lib/vue.min.js"></script>
+	<script>
+		// 全局组件
+		Vue.component('row1', {
+			template: '<tr><td>kings</td><td>游戏</td></tr>'
+		});
+
+		var myApp = new Vue({
+			el: '#myApp',
+			components: {
+				'row2': {
+					template: '<tr><td>Baobao</td><td>韩剧</td></tr>'
+				}
+			}
+		});
+	</script>
+</body>
+</html>

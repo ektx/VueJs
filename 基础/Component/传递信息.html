@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+	<meta charset="UTF-8">
+	<title></title>
+</head>
+<body>
+
+	<section id="myApp">
+		
+		<input type="text" v-model="name" placeholder="Please input your name">
+		<br>
+		<h1>{{name}}</h1>
+
+		<child v-bind:x-name="name" />
+
+	</section>
+
+	<script src="../../lib/vue.min.js"></script>
+	<script>
+		// 全局组件
+		Vue.component('child', {
+			template: '<h2>{{xName}}</h2>',
+			props: ['xName']
+		});
+
+		var myApp = new Vue({
+			el: '#myApp',
+			data: {
+				name: 'zwl'
+			}
+		});
+	</script>
+</body>
+</html>
