@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+	<meta charset="UTF-8">
+	<title>VueJs slot</title>
+</head>
+<body>
+	<section id="myApp">
+		<nba-all-starts c="奥尼尔" pf="加内特">
+			<span slot="sf">皮尔斯</span>
+			<span slot="sg">雷阿伦</span>
+		</nba-all-starts>
+	</section>
+
+	<script src="../../lib/vue.min.js"></script>
+	<script>
+
+		Vue.component('nba-all-starts', {
+			props: ['c', 'pf'],
+			template: `<div>
+				<div>中锋: {{c}}</div>
+				<div>大前: {{pf}}</div>
+				<div>小前: <slot name="sf"></slot>
+				<div>分卫: <slot name="sg"></slot>
+				<div>控卫: <slot name="pg"></slot>
+			</div>`
+		})
+
+		// Vue 对象实例化
+		var myApp = new Vue({
+			el: '#myApp'
+		});
+
+		//设置 money
+		myApp.money = 15000;
+	</script>
+</body>
+</html>

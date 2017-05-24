@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+	<meta charset="UTF-8">
+	<title>VueJs slot</title>
+</head>
+<body>
+	<section id="myApp">
+		<hello name="ektx">
+			<h1>Thanks~</h1>
+		</hello>
+
+		<hello name="ektx">
+			<a href="#">Go~</a>
+		</hello>
+	</section>
+
+	<script src="../../lib/vue.min.js"></script>
+	<script>
+
+		Vue.component('hello', {
+			props: ['name'],
+			template: `<div>Hello, <b>{{name}}</b>
+				<slot></slot>
+				</div>
+			`
+		})
+
+		// Vue 对象实例化
+		var myApp = new Vue({
+			el: '#myApp'
+		});
+
+		//设置 money
+		myApp.money = 15000;
+	</script>
+</body>
+</html>
