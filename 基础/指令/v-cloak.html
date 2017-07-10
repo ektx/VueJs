@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+	<meta charset="UTF-8">
+	<title>v-cloak</title>
+	<style>
+		[v-clock] {
+			display: none;
+		}
+	</style>
+</head>
+<body>
+	<section id="myApp">
+		<span v-cloak>{{html}}</span>		
+	</section>
+
+	<script src="../../lib/vue.min.js"></script>
+	<script>
+
+		// Vue 对象实例化
+		var myApp = new Vue({
+			el: '#myApp',
+			data: {
+				html: '<h1>hello world</h1>'
+			}
+		});
+
+	</script>
+</body>
+</html>

@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+	<meta charset="UTF-8">
+	<title>v-text</title>
+</head>
+<body>
+	<section id="myApp">
+		<span>{{msg}}</span>
+		<hr>
+		<span v-text="msg"></span>
+
+		<p>以上2个功能相同,不同在于,渲染时,{{msg}}会显示,而v-text则不会,体验上更佳</p>
+	</section>
+
+	<script src="../../lib/vue.min.js"></script>
+	<script>
+
+		// Vue 对象实例化
+		var myApp = new Vue({
+			el: '#myApp',
+			data: {
+				msg: 'hello world'
+			}
+		});
+
+	</script>
+</body>
+</html>
