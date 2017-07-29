@@ -1,4 +1,3 @@
-// 开发阶段配置
 var utils = require('./utils')
 var webpack = require('webpack')
 var config = require('../config')

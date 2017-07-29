@@ -1,21 +1,14 @@
+<!-- 程序入口vue组件 -->
 <template>
   <div id="app">
     <img src="./assets/logo.png">
-    <sayHi></sayHi>
     <router-view></router-view>
   </div>
 </template>
 
 <script>
-import sayHi from './components/sayHi'
-import ElementUI from 'element-ui'
-
 export default {
-  name: 'app',
-  components: {
-    sayHi,
-    ElementUI
-  }
+  name: 'app'
 }
 </script>
 
