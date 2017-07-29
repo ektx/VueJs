@@ -1,8 +1,13 @@
 <template>
   <div id="app">
     <img src="./assets/logo.png">
+    <el-button type="success">成功按钮</el-button>
+    <el-button type="text" @click="dialogVisible = true">点击打开 Dialog</el-button>
+
     <sayHi></sayHi>
     <router-view></router-view>
+
+
   </div>
 </template>
 
