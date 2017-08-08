@@ -4,8 +4,10 @@ var path = require('path')
 module.exports = {
   build: {
     env: require('./prod.env'),
+    // 多页面入口
     hello: path.resolve(__dirname, '../dist/hello.html'),
     index: path.resolve(__dirname, '../dist/index.html'),
+    // 文件生成位置
     assetsRoot: path.resolve(__dirname, '../dist'),
     assetsSubDirectory: '',
     assetsPublicPath: '',
@@ -24,9 +26,12 @@ module.exports = {
   },
   dev: {
     env: require('./dev.env'),
+    // 开发版本中端口
     port: 8080,
+    // 自动打开浏览器
     autoOpenBrowser: true,
-    assetsSubDirectory: 'static',
+    // 开发版本中静态文件地址
+    assetsSubDirectory: '',
     assetsPublicPath: '/',
     proxyTable: {},
     // CSS Sourcemaps off by default because relative paths are "buggy"
