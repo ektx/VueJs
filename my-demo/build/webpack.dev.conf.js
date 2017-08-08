@@ -26,11 +26,23 @@ module.exports = merge(baseWebpackConfig, {
     new webpack.HotModuleReplacementPlugin(),
     new webpack.NoEmitOnErrorsPlugin(),
     // https://github.com/ampedandwired/html-webpack-plugin
+
+    // index.html → main.js
     new HtmlWebpackPlugin({
-      filename: 'index.html',
-      template: 'index.html',
-      inject: true
+      filename: 'index.html', // 生成的 html
+      template: 'index.html', // 来源的 html
+      inject: true, // 是否开启注入
+      chunks: ['app'] //需要引入的Chunk，不配置就会引入所有页面的资源,引用的名称就是你在 webpack.base.conf.js 入口定义的名字
     }),
+
+    // hello.htm → hello.js
+    new HtmlWebpackPlugin({
+      filename: 'hello.html', // 生成的 html
+      template: 'hello.html', // 来源的 html
+      inject: true, // 是否开启注入
+      chunks: ['hello'] //需要引入的Chunk，不配置就会引入所有页面的资源,引用的名称就是你在 webpack.base.conf.js 入口定义的名字
+    }),
+
     new FriendlyErrorsPlugin()
   ]
 })

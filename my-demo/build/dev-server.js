@@ -25,6 +25,7 @@ var compiler = webpack(webpackConfig)
 
 var devMiddleware = require('webpack-dev-middleware')(compiler, {
   publicPath: webpackConfig.output.publicPath,
+  headers: {'Access-Control-Allow-Origin': '*'},
   quiet: true
 })
 
@@ -79,7 +80,9 @@ devMiddleware.waitUntilValid(() => {
   _resolve()
 })
 
-var server = app.listen(port)
+var server = app.listen(port, ()=> {
+  server.keepAliveTimeout = 0
+})
 
 module.exports = {
   ready: readyPromise,
