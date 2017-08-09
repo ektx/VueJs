@@ -7,9 +7,10 @@ module.exports = {
     // 多页面入口
     hello: path.resolve(__dirname, '../dist/hello.html'),
     index: path.resolve(__dirname, '../dist/index.html'),
+    cnode: path.resolve(__dirname, '../dist/CNode.html'),
     // 文件生成位置
     assetsRoot: path.resolve(__dirname, '../dist'),
-    assetsSubDirectory: '',
+    assetsSubDirectory: './static',
     assetsPublicPath: '',
     productionSourceMap: true,
     // Gzip off by default as many popular static hosts such as
@@ -31,7 +32,7 @@ module.exports = {
     // 自动打开浏览器
     autoOpenBrowser: true,
     // 开发版本中静态文件地址
-    assetsSubDirectory: '',
+    assetsSubDirectory: './static',
     assetsPublicPath: '/',
     proxyTable: {},
     // CSS Sourcemaps off by default because relative paths are "buggy"

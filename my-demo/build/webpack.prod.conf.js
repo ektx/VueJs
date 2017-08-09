@@ -82,6 +82,22 @@ var webpackConfig = merge(baseWebpackConfig, {
       chunks: ['manifest', 'vendor', 'hello']
     }),
 
+    new HtmlWebpackPlugin({
+      filename: config.build.cnode,
+      template: 'CNode.html',
+      inject: true,
+      minify: {
+        removeComments: true,
+        collapseWhitespace: true,
+        removeAttributeQuotes: true
+        // more options:
+        // https://github.com/kangax/html-minifier#options-quick-reference
+      },
+      // necessary to consistently work with multiple chunks via CommonsChunkPlugin
+      chunksSortMode: 'dependency',
+      chunks: ['manifest', 'vendor', 'cnode']
+    }),
+
     // split vendor js into its own file
     new webpack.optimize.CommonsChunkPlugin({
       name: 'vendor',

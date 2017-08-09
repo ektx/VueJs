@@ -14,7 +14,8 @@ module.exports = {
   // 入口,用于告诉webpack从哪里开始
   entry: {
     app: './src/main.js',
-    hello: './src/hello.js'
+    hello: './src/hello.js',
+    cnode: './src/CNode.js',
   },
   // 出口
   output: {

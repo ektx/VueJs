@@ -43,6 +43,14 @@ module.exports = merge(baseWebpackConfig, {
       chunks: ['hello'] //需要引入的Chunk，不配置就会引入所有页面的资源,引用的名称就是你在 webpack.base.conf.js 入口定义的名字
     }),
 
+     // hello.htm → hello.js
+    new HtmlWebpackPlugin({
+      filename: 'CNode.html', // 生成的 html
+      template: 'CNode.html', // 来源的 html
+      inject: true, // 是否开启注入
+      chunks: ['cnode'] //需要引入的Chunk，不配置就会引入所有页面的资源,引用的名称就是你在 webpack.base.conf.js 入口定义的名字
+    }),
+
     new FriendlyErrorsPlugin()
   ]
 })

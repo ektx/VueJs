@@ -1,26 +1,24 @@
 <template>
 <div>
   <nav>
-    <a href="#">Home</a>
-    <a href="#">user</a>
-    <a href="#">about</a>
+    <router-link to="/">Home</router-link>
+    <router-link to="/hi">Hi</router-link>
+
   </nav>
-  <sayHi></sayHi>
+  <router-view></router-view>
+
 </div>
 </template>
 
 <script>
-import sayHi from './components/sayHi'
 
 export default {
   name: 'app',
   data () {
     return {
-      value3: ''
     }
   },
   components: {
-    sayHi
   }
 }
 </script>
