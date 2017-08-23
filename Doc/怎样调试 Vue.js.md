@@ -12,7 +12,7 @@ Vue.config.debug = true; Vue.config.devtools = true;
 
 2.下载好后进入vue-devtools-master工程 
 
-```js
+```shell
 npm install
 
 npm run build.
