@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+	<meta charset="UTF-8">
+	<title></title>
+</head>
+<body>
+
+	<section id="myApp">
+		
+		<child ref='c01'></child>
+		<child ref="c02"></child>
+
+	</section>
+
+	<script type="text/x-template" id="child-tem">
+		<div>
+			{{ msg }}
+		</div>
+	</script>
+
+	<script src="../../lib/vue.min.js"></script>
+	<script>
+		// 全局组件
+		Vue.component('child', {
+			template: '#child-tem',
+			data: function() {
+				return {
+					msg: '默认'
+				}
+			},
+			methods: {
+				print: function(data) {
+					this.msg = data
+				}
+			}
+		});
+
+		var myApp = new Vue({
+			el: '#myApp',
+			data: {
+			},
+			mounted: function() {
+				this.$refs.c01.print('第一次调用 child')
+
+				this.$refs.c02.print('第二次调用 child')
+			}
+		});
+	</script>
+</body>
+</html>
