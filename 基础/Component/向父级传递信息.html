@@ -12,14 +12,21 @@
 		<hr />
 		<h1>{{result}}</h1>
 
-
 	</section>
+
+	<script type="text/x-template" id="child-tem">
+		<div>
+			<input type="text" v-model.number="first" v-on:keyup="add">
+			+
+			<input type="text" v-model.number="last" v-on:keyup="add">
+		</div>
+	</script>
 
 	<script src="../../lib/vue.min.js"></script>
 	<script>
 		// 全局组件
 		Vue.component('child', {
-			template: '<div><input type="text" v-model.number="first" v-on:keyup="add">+<input type="text" v-model.number="last" v-on:keyup="add"></div>',
+			template: '#child-tem',
 			data: function() {
 				return {
 					first: 0,
