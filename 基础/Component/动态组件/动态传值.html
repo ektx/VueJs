@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+	<meta charset="UTF-8">
+	<title>动态组件</title>
+</head>
+<body>
+
+	<section id="myApp">
+		
+		<component v-bind:is="currentView" :vdata="sendData">
+			<!-- 组件在 vm.currentview 变化时改变 -->
+		</component>
+
+		<button @click="change('Home')">Home</button>
+		<button @click="change('User')">User</button>
+
+	</section>
+
+	<script type="text/x-template" id="home">
+		<main>
+			<h1>Welcome home!</h1>
+			<p>{{ vdata }}</p>
+		</main>
+	</script>
+
+	<script type="text/x-template" id="user">
+		<main>
+			<h1>Welcome User!</h1>
+			<p v-for="val in vdata">{{ val }}</p>
+		</main>
+	</script>
+
+	<script src="../../../lib/vue.min.js"></script>
+	<script>
+		let Home = {
+			props: ['vdata'],
+			template: '#home'
+		}
+
+		let User = {
+			props: ['vdata'],
+			template: '#user'
+		}
+
+		let myApp = new Vue({
+			el: '#myApp',
+			data: {
+				currentView: 'Home',
+				sendData: ''
+			},
+			components: {
+				Home,
+				User
+			},
+			methods: {
+				change: function(tem) {
+					this.currentView = tem;
+
+					if (tem === 'Home') {
+						this.sendData = 'this is send Data for home'
+					} else {
+						this.sendData = [1,2,3]
+					}
+				}
+			}
+		});
+	</script>
+</body>
+</html>
