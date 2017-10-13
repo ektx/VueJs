@@ -10,7 +10,9 @@ module.exports = {
     cnode: path.resolve(__dirname, '../dist/CNode.html'),
     // 文件生成位置
     assetsRoot: path.resolve(__dirname, '../dist'),
+    // 静态文件存放目录
     assetsSubDirectory: './static',
+    // 设置项目静态文件的根请求位置,默认为 '/'
     assetsPublicPath: '',
     productionSourceMap: true,
     // Gzip off by default as many popular static hosts such as
