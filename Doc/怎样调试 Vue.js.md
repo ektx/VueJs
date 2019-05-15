@@ -1,7 +1,8 @@
 # 怎样调试 Vue.js
 
 ```js
-Vue.config.debug = true; Vue.config.devtools = true;
+Vue.config.debug = true; 
+Vue.config.devtools = true;
 ```
 
 在 chrome 中下载 vue-devtool 工具

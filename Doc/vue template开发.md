@@ -1,0 +1,1 @@
+https://blog.beard.ink/JavaScript/%E6%B7%B1%E5%BA%A6%E5%AE%9A%E5%88%B6%E5%9B%A2%E9%98%9F%E8%87%AA%E5%B7%B1%E7%9A%84-Vue-template/

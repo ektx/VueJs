@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+	<meta charset="UTF-8">
+	<title></title>
+</head>
+<body>
+	<div id="myApp2">
+		
+		{{ count }}
+
+		<button @click="del">-</button>
+		<button @click="add">+</button>
+
+	</div>
+
+	<script src="../../lib/vue.min.js"></script>
+	<script src="../../lib/vuex.js"></script>
+	<script>
+
+		const store = new Vuex.Store({
+			state: {
+				count: 0
+			},
+			mutations: {
+				del: state => state.count--,
+				add: state => state.count++
+			}
+		});
+
+		var myApp2 = new Vue({
+			el: '#myApp2',
+			computed: Vuex.mapState({
+				count: state => state.count
+			}),
+			methods: {
+				del() {
+					store.commit('del')
+				},
+				add() {
+					store.commit('add')
+				}
+			}
+		});
+	</script>
+</body>
+</html>
